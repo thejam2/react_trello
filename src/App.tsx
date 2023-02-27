@@ -26,8 +26,8 @@ const toDos = ["a", "b", "c", "d", "e", "f"];
 
 function App() {
   const [toDos, setToDos] = useRecoilState(toDoState);
+  console.log(toDos);
   const onDragEnd = (info: DropResult) => {
-    console.log(info);
     const { destination, draggableId, source } = info;
     if (!destination) return;
     if (destination?.droppableId === source.droppableId) {

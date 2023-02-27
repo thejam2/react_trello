@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   padding-top: 10px;
   background-color: ${(props) => props.theme.boardColor};
   border-radius: 5px;
-  min-height: 300px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -32,9 +32,9 @@ interface IAreaProps {
 const Area = styled.div<IAreaProps>`
   background-color: ${(props) =>
     props.isDraggingOver
-      ? "#dfe6e9"
+      ? "#b2bec3"
       : props.isDraggingFromThis
-        ? "#b2bec3"
+        ? "#dfe6e9"
         : "transparent"};
   flex-grow: 1;
   transition: background-color 0.3s ease-in-out;
@@ -43,8 +43,18 @@ const Area = styled.div<IAreaProps>`
 
 const Form = styled.form`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
   input {
-    width: 100%;
+    font-size: 16px;
+    border: 0;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 auto;
   }
 `;
 
@@ -97,6 +107,7 @@ function Board({ toDos, boardId }: IBoardProps) {
                 index={index}
                 toDoId={toDo.id}
                 toDoText={toDo.text}
+                boardId={boardId}
               />
             ))}
             {magic.placeholder}
